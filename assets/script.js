@@ -5,6 +5,8 @@ const shortDate = (dt) => {
   return sdate
 }
 
+
+
 document.getElementById('weatherSearch').addEventListener('click', event => {
   event.preventDefault()
   axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${document.getElementById('citySearch').value}&units=imperial&appid=68d634195147f679bc3416e5b0e9d434`)
@@ -17,7 +19,7 @@ document.getElementById('weatherSearch').addEventListener('click', event => {
       document.getElementById('hum').innerHTML = `${weather.main.humidity}`
       document.getElementById('wndSpd').innerHTML = `${weather.wind.speed}`
       document.getElementById('date').innerHTML = Date()
-//gets 5 day forecast
+      //gets 5 day forecast
       axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${weather.coord.lat}&lon=${weather.coord.lon}&units=imperial&appid=68d634195147f679bc3416e5b0e9d434`)
         .then(resp => {
           let weatherc = resp.data.current
@@ -27,9 +29,14 @@ document.getElementById('weatherSearch').addEventListener('click', event => {
           let history = JSON.parse(localStorage.getItem('history')) || []
           history.push({ resultName })
           localStorage.setItem('history', JSON.stringify(history))
+          for (let h = history.length -1; h > -1; h--) {
+            document.getElementById('searchHistory').innerHTML += `
+            <button type="button" class="list-group-item list-group-item-action" data-val="${history[h].resultName}">${history[h].resultName}</button>`
+          }
           console.log(history)
           console.log(future)
           for (let i = 1; i < 7; i++) {
+            //inputs 5 day forecast data onto page
             document.getElementById(`slot-${i}`).innerHTML = `
                   <div class="card">
                   <div class="card-body">
@@ -41,8 +48,9 @@ document.getElementById('weatherSearch').addEventListener('click', event => {
                   </div>
                   </div>
                   `
-
             console.log(res)
+
+            // identifies UV index and changes color based on its value
             document.getElementById('uvInd').innerHTML = `${weatherc.uvi}`
             if (weatherc.uvi >= 0 && weatherc.uvi < 3) {
               document.getElementById("uvInd").classList.add("bg-success")
@@ -55,5 +63,12 @@ document.getElementById('weatherSearch').addEventListener('click', event => {
             }
           }
         })
-      })
+    })
+})
+document.getElementById('clearHistory').addEventListener('click', event => {
+  event.preventDefault()
+  let clrHst = confirm('Are you sure you want to clear your history?')
+  if (clrHst) {
+  localStorage.removeItem('history')
+  }
 })

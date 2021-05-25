@@ -15,7 +15,14 @@
   <header class="header bg-dark">
     <h1> Weather Dashboard</h1>
   </header>
-
+  <div class="btn-group dropstart">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Location History
+    </button>
+    <ul class="dropdown-menu" id="searchHistory">
+    </ul>
+  </div>
+<button id="clearHistory">Clear History</button>
   <div class="container">
     <div class="row">
 
@@ -43,7 +50,7 @@
         </div>
       </div>
       <div>
-        <h1 class="forecastClass"> 5 Day Forecast:</h1>
+        <h1 class="forecastClass"> 6 Day Forecast:</h1>
       </div>
       <div class="card-deck" id="fiveDay"></div>
       <p id="date"> Date: </p>
