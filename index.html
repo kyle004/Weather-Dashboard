@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+  <header class="header bg-dark">
+    <h1> Weather Dashboard</h1>
+  </header>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm-12 col-lg-3">
+        <form>
+          <label for="citySearch">Search Locations</label>
+          <input type="text" name="citySearch" id="citySearch">
+          <button id="weatherSearch">Search</button>
+        </form>
+        <div id="weatherResults"></div>
+      </div>
+      <!-- THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the -->
+      <!-- humidity, the wind speed, and the UV index -->
+      <div class="col-sm-12 col-lg-9">
+        <div class="card">
+          <div class="card-body">
+            <h1 id="cityName"></h1>
+            <p>City Name: <span id="cityLocation"></span></p>
+            <p>Current Conditions:<span id="conditions"></span></p>
+            <p>Temperature<span id="temp"></span>&deg</p>
+            <p>Humidity <span id="hum"></span>%</p>
+            <p>Wind Speed: <span id="wndSpd"></span>MPH</p>
+            <p>UV Index: <span id="uvInd" class="badge"></span></p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h1> 5 Day Forecast:</h1>
+      </div>
+      <div class="card-deck" id="fiveDay"></div>
+      <p id="date"> Date: </p>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="assets/script.js"></script>
+
+</body>
+
+</html>
