@@ -1,3 +1,7 @@
+body {
+  background-color: rgb(107, 107, 107);
+}
+
 header {
   color: white;
   text-align: center;
@@ -6,4 +10,14 @@ header {
 
 .card-body {
   background-color: rgb(255, 121, 121);
+}
+
+.forecastClass {
+  margin-left: 5%;
+  margin-top: 8%;
+  border: ridge 5px;
+}
+
+.card {
+  font-weight: 800;
 }
