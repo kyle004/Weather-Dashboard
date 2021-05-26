@@ -9,13 +9,15 @@ header {
 }
 
 .card-body {
-  background-color: rgb(255, 121, 121);
+  background-color: rgb(121, 120, 120);
 }
 
 .forecastClass {
-  margin-left: 5%;
+  /* margin-left: 5%; */
   margin-top: 8%;
-  border: ridge 5px;
+  /* margin-right: 80%; */
+  border: ridge 2px;
+  border-color: rgb(255, 255, 255);
 }
 
 .card {
