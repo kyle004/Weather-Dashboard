@@ -34,7 +34,7 @@ const Display = (bold) => {
           }
           // console.log(history)
           // console.log(future)
-          for (let i = 0; i < 6; i++) {
+          for (let i = 0; i < 5; i++) {
             //inputs 5 day forecast data onto page
             document.getElementById(`slot-${i + 1}`).innerHTML = `
         <div class="card">
